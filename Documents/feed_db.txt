@@ -1,0 +1,173 @@
+-- Clean tables
+DELETE FROM week_days;
+DELETE FROM Project_time_sheets;
+DELETE FROM Project_positions;
+DELETE FROM Time_sheet;
+DELETE FROM Project;
+DELETE FROM Employee;
+DELETE FROM Position;
+
+-- Insert into Position
+INSERT INTO Position (Position_name) VALUES ('Software Engineer');
+INSERT INTO Position (Position_name) VALUES ('UI/UX Designer');
+INSERT INTO Position (Position_name) VALUES ('QA Analyst');
+INSERT INTO Position (Position_name) VALUES ('DevOps Engineer');
+INSERT INTO Position (Position_name) VALUES ('Project Manager');
+INSERT INTO Position (Position_name) VALUES ('Business Analyst');
+INSERT INTO Position (Position_name) VALUES ('Data Scientist');
+INSERT INTO Position (Position_name) VALUES ('Backend Developer');
+INSERT INTO Position (Position_name) VALUES ('Frontend Developer');
+INSERT INTO Position (Position_name) VALUES ('Scrum Master');
+
+-- Insert into Employee
+INSERT INTO Employee (Username, Password, First_Name, Last_Name, Email, Role, Status, Position_id)
+VALUES ('jdoe', 'pass123', 'John', 'Doe', 'jdoe@example.com', 'Manager', 'Active', 1);
+INSERT INTO Employee (Username, Password, First_Name, Last_Name, Email, Role, Status, Position_id)
+VALUES ('asmith', 'pass456', 'Alice', 'Smith', 'asmith@example.com', 'Manager', 'Active', 2);
+INSERT INTO Employee (Username, Password, First_Name, Last_Name, Email, Role, Status, Position_id)
+VALUES ('bwayne', 'pass789', 'Bruce', 'Wayne', 'bwayne@example.com', 'Manager', 'Active', 3);
+INSERT INTO Employee (Username, Password, First_Name, Last_Name, Email, Role, Status, Position_id)
+VALUES ('ckent', 'superman', 'Clark', 'Kent', 'ckent@example.com', 'Manager', 'Active', 4);
+INSERT INTO Employee (Username, Password, First_Name, Last_Name, Email, Role, Status, Position_id)
+VALUES ('dparker', 'p@ssword', 'Diana', 'Parker', 'dparker@example.com', 'Manager', 'Active', 5);
+INSERT INTO Employee (Username, Password, First_Name, Last_Name, Email, Role, Status, Position_id)
+VALUES ('eallen', 'fast123', 'Ethan', 'Allen', 'eallen@example.com', 'Analyst', 'Active', 6);
+INSERT INTO Employee (Username, Password, First_Name, Last_Name, Email, Role, Status, Position_id)
+VALUES ('fcastle', 'hunter42', 'Fiona', 'Castle', 'fcastle@example.com', 'Scientist', 'Active', 7);
+INSERT INTO Employee (Username, Password, First_Name, Last_Name, Email, Role, Status, Position_id)
+VALUES ('gsnow', 'backloop', 'George', 'Snow', 'gsnow@example.com', 'Backend Dev', 'Active', 8);
+INSERT INTO Employee (Username, Password, First_Name, Last_Name, Email, Role, Status, Position_id)
+VALUES ('hwang', 'pixel99', 'Hannah', 'Wang', 'hwang@example.com', 'Frontend Dev', 'Active', 9);
+INSERT INTO Employee (Username, Password, First_Name, Last_Name, Email, Role, Status, Position_id)
+VALUES ('ijames', 'scrummm', 'Ian', 'James', 'ijames@example.com', 'Scrum Master', 'Active', 10);
+
+-- Insert into Project
+INSERT INTO Project (Project_name, Project_Description, Emp_id)
+VALUES ('Apollo CRM', 'Customer Relationship Management system', 1);
+INSERT INTO Project (Project_name, Project_Description, Emp_id)
+VALUES ('Orion UI Revamp', 'Redesigning web application frontend', 2);
+INSERT INTO Project (Project_name, Project_Description, Emp_id)
+VALUES ('Titan QA Suite', 'End-to-end automated QA framework', 3);
+INSERT INTO Project (Project_name, Project_Description, Emp_id)
+VALUES ('Nebula CI/CD', 'Building CI/CD pipelines with Jenkins', 4);
+INSERT INTO Project (Project_name, Project_Description, Emp_id)
+VALUES ('Phoenix Migration', 'Migrating monolith to microservices', 5);
+INSERT INTO Project (Project_name, Project_Description, Emp_id)
+VALUES ('Aurora Reports', 'Business analytics and dashboard system', 1);
+INSERT INTO Project (Project_name, Project_Description, Emp_id)
+VALUES ('Helix AI Module', 'AI-powered recommendation engine', 2);
+INSERT INTO Project (Project_name, Project_Description, Emp_id)
+VALUES ('Echo API Gateway', 'Unified backend API access', 3);
+INSERT INTO Project (Project_name, Project_Description, Emp_id)
+VALUES ('Lumos Web Portal', 'Client-facing frontend for Lumos', 4);
+INSERT INTO Project (Project_name, Project_Description, Emp_id)
+VALUES ('Nimbus Agile Tools', 'Internal agile team dashboard suite', 5);
+
+-- Insert into Time_sheet
+INSERT INTO TIME_SHEET (START_DATE, END_DATE, TS_NAME, EMP_ID)
+VALUES (TO_DATE('2025-01-08', 'YYYY-MM-DD'), TO_DATE('2025-01-14', 'YYYY-MM-DD'), '2025-01-08 --> 2025-01-14', 1);
+
+INSERT INTO TIME_SHEET (START_DATE, END_DATE, TS_NAME, EMP_ID)
+VALUES (TO_DATE('2025-01-15', 'YYYY-MM-DD'), TO_DATE('2025-01-21', 'YYYY-MM-DD'), '2025-01-15 --> 2025-01-21', 2);
+
+INSERT INTO TIME_SHEET (START_DATE, END_DATE, TS_NAME, EMP_ID)
+VALUES (TO_DATE('2025-01-22', 'YYYY-MM-DD'), TO_DATE('2025-01-28', 'YYYY-MM-DD'), '2025-01-22 --> 2025-01-28', 3);
+
+INSERT INTO TIME_SHEET (START_DATE, END_DATE, TS_NAME, EMP_ID)
+VALUES (TO_DATE('2025-01-29', 'YYYY-MM-DD'), TO_DATE('2025-02-04', 'YYYY-MM-DD'), '2025-01-29 --> 2025-02-04', 4);
+
+INSERT INTO TIME_SHEET (START_DATE, END_DATE, TS_NAME, EMP_ID)
+VALUES (TO_DATE('2025-02-05', 'YYYY-MM-DD'), TO_DATE('2025-02-11', 'YYYY-MM-DD'), '2025-02-05 --> 2025-02-11', 5);
+
+INSERT INTO TIME_SHEET (START_DATE, END_DATE, TS_NAME, EMP_ID)
+VALUES (TO_DATE('2025-02-12', 'YYYY-MM-DD'), TO_DATE('2025-02-18', 'YYYY-MM-DD'), '2025-02-12 --> 2025-02-18', 6);
+
+INSERT INTO TIME_SHEET (START_DATE, END_DATE, TS_NAME, EMP_ID)
+VALUES (TO_DATE('2025-02-19', 'YYYY-MM-DD'), TO_DATE('2025-02-25', 'YYYY-MM-DD'), '2025-02-19 --> 2025-02-25', 7);
+
+INSERT INTO TIME_SHEET (START_DATE, END_DATE, TS_NAME, EMP_ID)
+VALUES (TO_DATE('2025-02-26', 'YYYY-MM-DD'), TO_DATE('2025-03-04', 'YYYY-MM-DD'), '2025-02-26 --> 2025-03-04', 8);
+
+INSERT INTO TIME_SHEET (START_DATE, END_DATE, TS_NAME, EMP_ID)
+VALUES (TO_DATE('2025-03-05', 'YYYY-MM-DD'), TO_DATE('2025-03-11', 'YYYY-MM-DD'), '2025-03-05 --> 2025-03-11', 9);
+
+INSERT INTO TIME_SHEET (START_DATE, END_DATE, TS_NAME, EMP_ID)
+VALUES (TO_DATE('2025-03-12', 'YYYY-MM-DD'), TO_DATE('2025-03-18', 'YYYY-MM-DD'), '2025-03-12 --> 2025-03-18', 10);
+
+
+-- Insert into Project_positions
+INSERT INTO Project_positions (Project_id, Position_id, hours_budget) VALUES (1, 1, 40);
+INSERT INTO Project_positions (Project_id, Position_id, hours_budget) VALUES (2, 2, 30);
+INSERT INTO Project_positions (Project_id, Position_id, hours_budget) VALUES (3, 3, 25);
+INSERT INTO Project_positions (Project_id, Position_id, hours_budget) VALUES (4, 4, 35);
+INSERT INTO Project_positions (Project_id, Position_id, hours_budget) VALUES (5, 5, 50);
+INSERT INTO Project_positions (Project_id, Position_id, hours_budget) VALUES (6, 6, 30);
+INSERT INTO Project_positions (Project_id, Position_id, hours_budget) VALUES (7, 7, 60);
+INSERT INTO Project_positions (Project_id, Position_id, hours_budget) VALUES (8, 8, 45);
+INSERT INTO Project_positions (Project_id, Position_id, hours_budget) VALUES (9, 9, 40);
+INSERT INTO Project_positions (Project_id, Position_id, hours_budget) VALUES (10, 10, 20);
+
+-- Insert into Project_time_sheets
+INSERT INTO Project_time_sheets (ts_id, project_id) VALUES (1, 1);
+INSERT INTO Project_time_sheets (ts_id, project_id) VALUES (2, 2);
+INSERT INTO Project_time_sheets (ts_id, project_id) VALUES (3, 3);
+INSERT INTO Project_time_sheets (ts_id, project_id) VALUES (4, 4);
+INSERT INTO Project_time_sheets (ts_id, project_id) VALUES (5, 5);
+INSERT INTO Project_time_sheets (ts_id, project_id) VALUES (6, 6);
+INSERT INTO Project_time_sheets (ts_id, project_id) VALUES (7, 7);
+INSERT INTO Project_time_sheets (ts_id, project_id) VALUES (8, 8);
+INSERT INTO Project_time_sheets (ts_id, project_id) VALUES (9, 9);
+INSERT INTO Project_time_sheets (ts_id, project_id) VALUES (10, 10);
+
+
+-- Insert into week_days
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-02-01', 'YYYY-MM-DD'), 7, 1, 'Monday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-02-02', 'YYYY-MM-DD'), 8, 1, 'Tuesday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-02-03', 'YYYY-MM-DD'), 8, 1, 'Wednesday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-02-04', 'YYYY-MM-DD'), 6, 1, 'Thursday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-02-05', 'YYYY-MM-DD'), 8, 1, 'Friday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-02-08', 'YYYY-MM-DD'), 9, 2, 'Monday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-02-09', 'YYYY-MM-DD'), 9, 2, 'Tuesday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-02-10', 'YYYY-MM-DD'), 9, 2, 'Wednesday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-02-11', 'YYYY-MM-DD'), 6, 2, 'Thursday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-02-12', 'YYYY-MM-DD'), 9, 2, 'Friday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-02-15', 'YYYY-MM-DD'), 6, 3, 'Monday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-02-16', 'YYYY-MM-DD'), 6, 3, 'Tuesday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-02-17', 'YYYY-MM-DD'), 8, 3, 'Wednesday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-02-18', 'YYYY-MM-DD'), 7, 3, 'Thursday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-02-19', 'YYYY-MM-DD'), 8, 3, 'Friday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-02-22', 'YYYY-MM-DD'), 7, 4, 'Monday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-02-23', 'YYYY-MM-DD'), 6, 4, 'Tuesday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-02-24', 'YYYY-MM-DD'), 9, 4, 'Wednesday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-02-25', 'YYYY-MM-DD'), 9, 4, 'Thursday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-02-26', 'YYYY-MM-DD'), 9, 4, 'Friday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-03-01', 'YYYY-MM-DD'), 9, 5, 'Monday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-03-02', 'YYYY-MM-DD'), 8, 5, 'Tuesday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-03-03', 'YYYY-MM-DD'), 9, 5, 'Wednesday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-03-04', 'YYYY-MM-DD'), 8, 5, 'Thursday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-03-05', 'YYYY-MM-DD'), 8, 5, 'Friday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-03-08', 'YYYY-MM-DD'), 9, 6, 'Monday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-03-09', 'YYYY-MM-DD'), 6, 6, 'Tuesday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-03-10', 'YYYY-MM-DD'), 7, 6, 'Wednesday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-03-11', 'YYYY-MM-DD'), 7, 6, 'Thursday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-03-12', 'YYYY-MM-DD'), 8, 6, 'Friday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-03-15', 'YYYY-MM-DD'), 7, 7, 'Monday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-03-16', 'YYYY-MM-DD'), 6, 7, 'Tuesday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-03-17', 'YYYY-MM-DD'), 9, 7, 'Wednesday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-03-18', 'YYYY-MM-DD'), 7, 7, 'Thursday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-03-19', 'YYYY-MM-DD'), 7, 7, 'Friday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-03-22', 'YYYY-MM-DD'), 8, 8, 'Monday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-03-23', 'YYYY-MM-DD'), 7, 8, 'Tuesday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-03-24', 'YYYY-MM-DD'), 8, 8, 'Wednesday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-03-25', 'YYYY-MM-DD'), 8, 8, 'Thursday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-03-26', 'YYYY-MM-DD'), 8, 8, 'Friday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-03-29', 'YYYY-MM-DD'), 7, 9, 'Monday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-03-30', 'YYYY-MM-DD'), 8, 9, 'Tuesday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-03-31', 'YYYY-MM-DD'), 7, 9, 'Wednesday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-04-01', 'YYYY-MM-DD'), 9, 9, 'Thursday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-04-02', 'YYYY-MM-DD'), 8, 9, 'Friday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-04-05', 'YYYY-MM-DD'), 6, 10, 'Monday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-04-06', 'YYYY-MM-DD'), 7, 10, 'Tuesday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-04-07', 'YYYY-MM-DD'), 6, 10, 'Wednesday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-04-08', 'YYYY-MM-DD'), 6, 10, 'Thursday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-04-09', 'YYYY-MM-DD'), 9, 10, 'Friday');

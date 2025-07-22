@@ -63,36 +63,46 @@ VALUES ('Lumos Web Portal', 'Client-facing frontend for Lumos', 4);
 INSERT INTO Project (Project_name, Project_Description, Emp_id)
 VALUES ('Nimbus Agile Tools', 'Internal agile team dashboard suite', 5);
 
--- Insert into Time_sheet
+-- Week 1: Jan 5 – Jan 11
 INSERT INTO TIME_SHEET (START_DATE, END_DATE, TS_NAME, EMP_ID)
-VALUES (TO_DATE('2025-01-08', 'YYYY-MM-DD'), TO_DATE('2025-01-14', 'YYYY-MM-DD'), '2025-01-08 --> 2025-01-14', 1);
+VALUES (TO_DATE('2025-01-05', 'YYYY-MM-DD'), TO_DATE('2025-01-11', 'YYYY-MM-DD'), '2025-01-05 --> 2025-01-11', 1);
 
+-- Week 2: Jan 12 – Jan 18
 INSERT INTO TIME_SHEET (START_DATE, END_DATE, TS_NAME, EMP_ID)
-VALUES (TO_DATE('2025-01-15', 'YYYY-MM-DD'), TO_DATE('2025-01-21', 'YYYY-MM-DD'), '2025-01-15 --> 2025-01-21', 2);
+VALUES (TO_DATE('2025-01-12', 'YYYY-MM-DD'), TO_DATE('2025-01-18', 'YYYY-MM-DD'), '2025-01-12 --> 2025-01-18', 2);
 
+-- Week 3: Jan 19 – Jan 25
 INSERT INTO TIME_SHEET (START_DATE, END_DATE, TS_NAME, EMP_ID)
-VALUES (TO_DATE('2025-01-22', 'YYYY-MM-DD'), TO_DATE('2025-01-28', 'YYYY-MM-DD'), '2025-01-22 --> 2025-01-28', 3);
+VALUES (TO_DATE('2025-01-19', 'YYYY-MM-DD'), TO_DATE('2025-01-25', 'YYYY-MM-DD'), '2025-01-19 --> 2025-01-25', 3);
 
+-- Week 4: Jan 26 – Feb 1
 INSERT INTO TIME_SHEET (START_DATE, END_DATE, TS_NAME, EMP_ID)
-VALUES (TO_DATE('2025-01-29', 'YYYY-MM-DD'), TO_DATE('2025-02-04', 'YYYY-MM-DD'), '2025-01-29 --> 2025-02-04', 4);
+VALUES (TO_DATE('2025-01-26', 'YYYY-MM-DD'), TO_DATE('2025-02-01', 'YYYY-MM-DD'), '2025-01-26 --> 2025-02-01', 4);
 
+-- Week 5: Feb 2 – Feb 8
 INSERT INTO TIME_SHEET (START_DATE, END_DATE, TS_NAME, EMP_ID)
-VALUES (TO_DATE('2025-02-05', 'YYYY-MM-DD'), TO_DATE('2025-02-11', 'YYYY-MM-DD'), '2025-02-05 --> 2025-02-11', 5);
+VALUES (TO_DATE('2025-02-02', 'YYYY-MM-DD'), TO_DATE('2025-02-08', 'YYYY-MM-DD'), '2025-02-02 --> 2025-02-08', 5);
 
+-- Week 6: Feb 9 – Feb 15
 INSERT INTO TIME_SHEET (START_DATE, END_DATE, TS_NAME, EMP_ID)
-VALUES (TO_DATE('2025-02-12', 'YYYY-MM-DD'), TO_DATE('2025-02-18', 'YYYY-MM-DD'), '2025-02-12 --> 2025-02-18', 6);
+VALUES (TO_DATE('2025-02-09', 'YYYY-MM-DD'), TO_DATE('2025-02-15', 'YYYY-MM-DD'), '2025-02-09 --> 2025-02-15', 6);
 
+-- Week 7: Feb 16 – Feb 22
 INSERT INTO TIME_SHEET (START_DATE, END_DATE, TS_NAME, EMP_ID)
-VALUES (TO_DATE('2025-02-19', 'YYYY-MM-DD'), TO_DATE('2025-02-25', 'YYYY-MM-DD'), '2025-02-19 --> 2025-02-25', 7);
+VALUES (TO_DATE('2025-02-16', 'YYYY-MM-DD'), TO_DATE('2025-02-22', 'YYYY-MM-DD'), '2025-02-16 --> 2025-02-22', 7);
 
+-- Week 8: Feb 23 – Mar 1
 INSERT INTO TIME_SHEET (START_DATE, END_DATE, TS_NAME, EMP_ID)
-VALUES (TO_DATE('2025-02-26', 'YYYY-MM-DD'), TO_DATE('2025-03-04', 'YYYY-MM-DD'), '2025-02-26 --> 2025-03-04', 8);
+VALUES (TO_DATE('2025-02-23', 'YYYY-MM-DD'), TO_DATE('2025-03-01', 'YYYY-MM-DD'), '2025-02-23 --> 2025-03-01', 8);
 
+-- Week 9: Mar 2 – Mar 8
 INSERT INTO TIME_SHEET (START_DATE, END_DATE, TS_NAME, EMP_ID)
-VALUES (TO_DATE('2025-03-05', 'YYYY-MM-DD'), TO_DATE('2025-03-11', 'YYYY-MM-DD'), '2025-03-05 --> 2025-03-11', 9);
+VALUES (TO_DATE('2025-03-02', 'YYYY-MM-DD'), TO_DATE('2025-03-08', 'YYYY-MM-DD'), '2025-03-02 --> 2025-03-08', 9);
 
+-- Week 10: Mar 9 – Mar 15
 INSERT INTO TIME_SHEET (START_DATE, END_DATE, TS_NAME, EMP_ID)
-VALUES (TO_DATE('2025-03-12', 'YYYY-MM-DD'), TO_DATE('2025-03-18', 'YYYY-MM-DD'), '2025-03-12 --> 2025-03-18', 10);
+VALUES (TO_DATE('2025-03-09', 'YYYY-MM-DD'), TO_DATE('2025-03-15', 'YYYY-MM-DD'), '2025-03-09 --> 2025-03-15', 10);
+
 
 
 -- Insert into Project_positions
@@ -121,53 +131,64 @@ INSERT INTO Project_time_sheets (ts_id, project_id) VALUES (10, 10);
 
 
 -- Insert into week_days
-INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-02-01', 'YYYY-MM-DD'), 7, 1, 'Monday');
-INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-02-02', 'YYYY-MM-DD'), 8, 1, 'Tuesday');
-INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-02-03', 'YYYY-MM-DD'), 8, 1, 'Wednesday');
-INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-02-04', 'YYYY-MM-DD'), 6, 1, 'Thursday');
-INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-02-05', 'YYYY-MM-DD'), 8, 1, 'Friday');
-INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-02-08', 'YYYY-MM-DD'), 9, 2, 'Monday');
-INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-02-09', 'YYYY-MM-DD'), 9, 2, 'Tuesday');
-INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-02-10', 'YYYY-MM-DD'), 9, 2, 'Wednesday');
-INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-02-11', 'YYYY-MM-DD'), 6, 2, 'Thursday');
-INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-02-12', 'YYYY-MM-DD'), 9, 2, 'Friday');
-INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-02-15', 'YYYY-MM-DD'), 6, 3, 'Monday');
-INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-02-16', 'YYYY-MM-DD'), 6, 3, 'Tuesday');
-INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-02-17', 'YYYY-MM-DD'), 8, 3, 'Wednesday');
-INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-02-18', 'YYYY-MM-DD'), 7, 3, 'Thursday');
-INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-02-19', 'YYYY-MM-DD'), 8, 3, 'Friday');
-INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-02-22', 'YYYY-MM-DD'), 7, 4, 'Monday');
-INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-02-23', 'YYYY-MM-DD'), 6, 4, 'Tuesday');
-INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-02-24', 'YYYY-MM-DD'), 9, 4, 'Wednesday');
-INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-02-25', 'YYYY-MM-DD'), 9, 4, 'Thursday');
-INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-02-26', 'YYYY-MM-DD'), 9, 4, 'Friday');
-INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-03-01', 'YYYY-MM-DD'), 9, 5, 'Monday');
-INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-03-02', 'YYYY-MM-DD'), 8, 5, 'Tuesday');
-INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-03-03', 'YYYY-MM-DD'), 9, 5, 'Wednesday');
-INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-03-04', 'YYYY-MM-DD'), 8, 5, 'Thursday');
-INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-03-05', 'YYYY-MM-DD'), 8, 5, 'Friday');
-INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-03-08', 'YYYY-MM-DD'), 9, 6, 'Monday');
-INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-03-09', 'YYYY-MM-DD'), 6, 6, 'Tuesday');
-INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-03-10', 'YYYY-MM-DD'), 7, 6, 'Wednesday');
-INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-03-11', 'YYYY-MM-DD'), 7, 6, 'Thursday');
-INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-03-12', 'YYYY-MM-DD'), 8, 6, 'Friday');
-INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-03-15', 'YYYY-MM-DD'), 7, 7, 'Monday');
-INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-03-16', 'YYYY-MM-DD'), 6, 7, 'Tuesday');
-INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-03-17', 'YYYY-MM-DD'), 9, 7, 'Wednesday');
-INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-03-18', 'YYYY-MM-DD'), 7, 7, 'Thursday');
-INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-03-19', 'YYYY-MM-DD'), 7, 7, 'Friday');
-INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-03-22', 'YYYY-MM-DD'), 8, 8, 'Monday');
-INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-03-23', 'YYYY-MM-DD'), 7, 8, 'Tuesday');
-INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-03-24', 'YYYY-MM-DD'), 8, 8, 'Wednesday');
-INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-03-25', 'YYYY-MM-DD'), 8, 8, 'Thursday');
-INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-03-26', 'YYYY-MM-DD'), 8, 8, 'Friday');
-INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-03-29', 'YYYY-MM-DD'), 7, 9, 'Monday');
-INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-03-30', 'YYYY-MM-DD'), 8, 9, 'Tuesday');
-INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-03-31', 'YYYY-MM-DD'), 7, 9, 'Wednesday');
-INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-04-01', 'YYYY-MM-DD'), 9, 9, 'Thursday');
-INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-04-02', 'YYYY-MM-DD'), 8, 9, 'Friday');
-INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-04-05', 'YYYY-MM-DD'), 6, 10, 'Monday');
-INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-04-06', 'YYYY-MM-DD'), 7, 10, 'Tuesday');
-INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-04-07', 'YYYY-MM-DD'), 6, 10, 'Wednesday');
-INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-04-08', 'YYYY-MM-DD'), 6, 10, 'Thursday');
-INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-04-09', 'YYYY-MM-DD'), 9, 10, 'Friday');
+-- Insert into week_days
+-- Insert into week_days
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-01-05', 'YYYY-MM-DD'), 7, 1, 'Sunday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-01-06', 'YYYY-MM-DD'), 8, 1, 'Monday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-01-07', 'YYYY-MM-DD'), 8, 1, 'Tuesday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-01-08', 'YYYY-MM-DD'), 6, 1, 'Wednesday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-01-09', 'YYYY-MM-DD'), 8, 1, 'Thursday');
+
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-01-12', 'YYYY-MM-DD'), 9, 2,'Sunday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-01-13', 'YYYY-MM-DD'), 9, 2,'Monday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-01-14', 'YYYY-MM-DD'), 9, 2,'Tuesday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-01-15', 'YYYY-MM-DD'), 6, 2,'Wednesday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-01-16', 'YYYY-MM-DD'), 9, 2,'Thursday');
+
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-01-19', 'YYYY-MM-DD'), 6, 3, 'Sunday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-01-20', 'YYYY-MM-DD'), 6, 3, 'Monday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-01-21', 'YYYY-MM-DD'), 8, 3, 'Tuesday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-01-22', 'YYYY-MM-DD'), 7, 3, 'Wednesday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-01-23', 'YYYY-MM-DD'), 8, 3, 'Thursday');
+
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-01-26', 'YYYY-MM-DD'), 7, 4, 'Sunday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-01-27', 'YYYY-MM-DD'), 6, 4, 'Monday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-01-28', 'YYYY-MM-DD'), 9, 4, 'Tuesday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-01-29', 'YYYY-MM-DD'), 9, 4, 'Wednesday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-01-30', 'YYYY-MM-DD'), 9, 4, 'Thursday');
+
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-02-02', 'YYYY-MM-DD'), 9, 5, 'Sunday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-02-03', 'YYYY-MM-DD'), 8, 5, 'Monday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-02-04', 'YYYY-MM-DD'), 9, 5, 'Tuesday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-02-05', 'YYYY-MM-DD'), 8, 5, 'Wednesday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-02-06', 'YYYY-MM-DD'), 8, 5, 'Thursday');
+
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-02-09', 'YYYY-MM-DD'), 9, 6, 'Sunday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-02-10', 'YYYY-MM-DD'), 6, 6, 'Monday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-02-11', 'YYYY-MM-DD'), 7, 6, 'Tuesday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-02-12', 'YYYY-MM-DD'), 7, 6, 'Wednesday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-02-13', 'YYYY-MM-DD'), 8, 6, 'Thursday');
+
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-02-16', 'YYYY-MM-DD'), 7, 7,'Sunday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-02-17', 'YYYY-MM-DD'), 6, 7,'Monday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-02-18', 'YYYY-MM-DD'), 9, 7,'Tuesday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-02-19', 'YYYY-MM-DD'), 7, 7,'Wednesday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-02-20', 'YYYY-MM-DD'), 7, 7,'Thursday');
+
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-02-23', 'YYYY-MM-DD'), 8, 8,'Sunday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-02-24', 'YYYY-MM-DD'), 7, 8,'Monday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-02-25', 'YYYY-MM-DD'), 8, 8,'Tuesday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-02-26', 'YYYY-MM-DD'), 8, 8,'Wednesday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-02-27', 'YYYY-MM-DD'), 8, 8,'Thursday');
+
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-03-02', 'YYYY-MM-DD'), 7, 9, 'Sunday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-03-03', 'YYYY-MM-DD'), 8, 9, 'Monday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-03-04', 'YYYY-MM-DD'), 7, 9, 'Tuesday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-03-05', 'YYYY-MM-DD'), 9, 9, 'Wednesday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-03-06', 'YYYY-MM-DD'), 8, 9, 'Thursday');
+
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-03-09', 'YYYY-MM-DD'), 6, 10, 'Sunday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-03-10', 'YYYY-MM-DD'), 7, 10, 'Monday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-03-11', 'YYYY-MM-DD'), 6, 10, 'Tuesday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-03-12', 'YYYY-MM-DD'), 6, 10, 'Wednesday');
+INSERT INTO week_days (day_date, hours, Project_ts_id, day_name) VALUES (TO_DATE('2025-03-13', 'YYYY-MM-DD'), 9, 10, 'Thursday');

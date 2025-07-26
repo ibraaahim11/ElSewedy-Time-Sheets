@@ -26,10 +26,8 @@ public class ProjectTimeSheet {
 
 	@ManyToOne
 	@JoinColumn(name = "PROJECT_ID")
-@JsonManagedReference
 	private Project project;
 
 	@OneToMany(mappedBy = "projectTimeSheet", cascade = CascadeType.ALL)
-	@JsonManagedReference
 	private List<WeekDay> weekDays;
 }

@@ -26,15 +26,13 @@ public class TimeSheet {
 
 	@Column(name = "TS_NAME")
 	private String name;
+	@Column(name="EMP_ID")
+	private Integer empId;
 
 
 
-//	@ManyToOne
-//	@JoinColumn(name="EMP_ID")
-//	private Employee CreatorEmployee;
 
 	@OneToMany(mappedBy = "timeSheet", cascade = CascadeType.ALL)
-	@JsonManagedReference
 	private List<ProjectTimeSheet> projectTimeSheets;
 
 }

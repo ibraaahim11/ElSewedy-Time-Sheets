@@ -1,5 +1,6 @@
 package com.example.elsewedybackend.timesheets.controllers;
 
+import com.example.elsewedybackend.timesheets.dto.ProjectHoursBudgetDTO;
 import com.example.elsewedybackend.timesheets.entities.Project;
 import com.example.elsewedybackend.timesheets.repositories.ProjectRepository;
 import org.springframework.web.bind.annotation.*;
@@ -8,6 +9,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/projects")
+@CrossOrigin(origins = "http://localhost:5173")
+
 public class ProjectController {
 
 	private final ProjectRepository projectRepository;
@@ -22,4 +25,21 @@ public class ProjectController {
 	public List<Project> getAssignedProjects(@RequestParam Integer employeeId) {
 		return projectRepository.getAssignedProjects(employeeId);
 	}
+
+	// GET /projects/assigned/budget?employeeId=1&tsId=1
+	@GetMapping("/assigned/budget")
+	public List<ProjectHoursBudgetDTO> getProjectsHoursBudget(
+			@RequestParam(required = true) Integer employeeId,
+			@RequestParam(required = false) Integer tsId
+	) {
+		if (tsId == null) {
+			return projectRepository.getProjectsHoursBudget(employeeId);
+
+		} else {
+			return projectRepository.getProjectsHoursBudgetAndTS(employeeId, tsId);
+
+		}
+	}
+
+
 }

@@ -1,86 +1,100 @@
-const TimesheetCard = () => {
-  return (
-    <div
-      className="card text-center shadow position-relative"
-      style={{ backgroundColor: "#EEEEEE", color: "#000000" }}
-    >
-      <div
-        className="card-header d-flex justify-content-between align-items-center flex-wrap gap-2"
-        style={{ backgroundColor: "#000000", color: "#EEEEEE" }}
-      >
-        <span className="fw-bold">Timesheet</span>
-        <div className="d-flex gap-2 align-items-center flex-wrap">
-          <input
-            type="date"
-            className="form-control form-control-sm"
-            style={{
-              backgroundColor: "#EEEEEE",
-              color: "#000000",
-              border: "1px solid #DC5F00",
-            }}
-            title="Start Date"
-          />
-          <input
-            type="date"
-            className="form-control form-control-sm"
-            style={{
-              backgroundColor: "#EEEEEE",
-              color: "#000000",
-              border: "1px solid #DC5F00",
-            }}
-            title="End Date"
-          />
-          <button
-            className="btn"
-            style={{
-              bottom: "15px",
-              right: "15px",
-              backgroundColor: "grey",
-              color: "#EEEEEE",
-              borderRadius: "50%",
-              width: "45px",
-              height: "45px",
-              fontSize: "28px",
-              lineHeight: "1",
-              padding: "0",
-              boxShadow: "0 2px 6px rgba(0,0,0,0.3)",
-            }}
-            title="Add"
-          >
-            +
-          </button>
-          <button className="btn btn-outline-secondary btn-sm" title="Edit">
-            <i className="bi bi-pencil-fill"></i>
-          </button>
-          <button className="btn btn-outline-success btn-sm" title="Save">
-            <i className="bi bi-save-fill"></i>
-          </button>
-          <button className="btn btn-outline-danger btn-sm" title="Delete">
-            <i className="bi bi-trash-fill"></i>
-          </button>
-        </div>
-      </div>
+import TSCardHeader from "./TSCardHeader";
+import TSCardBody from "./TSCardBody";
+import dateUtils from "../utils/dateUtils";
+import { useState, useEffect } from "react";
+import { useProjectRows } from "../hooks/useProjectRows";
+import timeSheetService from "../services/timeSheetService";
 
-      <div className="card-body">
-        <div className="row">
-          {[
-            "Sunday",
-            "Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
-            "Friday",
-            "Saturday",
-          ].map((day) => (
-            <div
-              key={day}
-              className="col border p-2"
-              style={{ backgroundColor: "#EEEEEE", borderColor: "#000000" }}
-            >
-              {day}
-            </div>
-          ))}
-        </div>
+const TimesheetCard = ({ deleteTs, newTS, tsId, empId }) => {
+  // take custom hook
+  const {
+    projectRows,
+    addProjectRow,
+    deleteProjectRow,
+    updateProjectHours,
+    updateProject,
+    setProjectRows,
+  } = useProjectRows();
+
+  const [actualEmpId, setActualEmpId] = useState(empId);
+
+  const [tsData, setTsData] = useState({});
+
+  // initally today
+  const [startDate, setStartDate] = useState(
+    dateUtils.getNextSundayString(dateUtils.getTodayDateString())
+  );
+
+  const [endDate, setEndDate] = useState("");
+  const [tsName, setTsName] = useState("");
+
+  useEffect(() => {
+    // This runs only once when the component is mounted to fetch ts data or set default data
+    const fetchData = async () => {
+      try {
+        console.log("newTs",newTS)
+        if (!newTS) {
+          const data = await timeSheetService.getTimeSheet(tsId);
+
+          setTsData(data);
+          setActualEmpId(data.empId);
+
+          // update start date -> automatically end & name will be updated
+          setStartDate(data.startDate);
+          // update project rows to be shown
+          setProjectRows(data.projectTimeSheets);
+        } else {
+          setTsData({
+            startDate: "",
+            endDate: "",
+            name: "",
+            projectTimeSheets: [],
+          });
+        }
+      } catch (error) {
+        console.error("API error:", error);
+      }
+    };
+    
+    fetchData();
+  }, []);
+
+  // when start date changes -> update endDate, tsName, and tsData
+  useEffect(() => {
+    const start = new Date(startDate);
+    const end = new Date(start);
+    end.setDate(start.getDate() + 6);
+
+    const endString = dateUtils.getDateString(end);
+    setEndDate(endString);
+    const tsNameString = `'${startDate} --> ${endString}'`;
+    setTsName(tsNameString);
+  }, [startDate]);
+
+  useEffect(() => console.log("projectRows ", projectRows), [projectRows]);
+
+  return (
+    <div style={{ display: "flex", justifyContent: "center", alignItems: "flex-start", minHeight: "100vh", width: "100%" }}>
+      <div className="card position-relative" style={{ minWidth: "1100px", maxWidth: "98vw", margin: "40px 0" }}>
+
+        <TSCardHeader
+          tsName={tsName}
+          startDate={startDate}
+          setStartDate={setStartDate}
+          endDate={endDate}
+          setEndDate={setEndDate}
+         deleteTs={deleteTs} // Remove from header
+        />
+        <TSCardBody
+          startDate={startDate}
+          projectRows={projectRows}
+          addProjectRow={addProjectRow}
+          deleteProjectRow={deleteProjectRow}
+          updateProjectHours={updateProjectHours}
+          updateProject={updateProject}
+          setProjectRows={setProjectRows}
+          empId={actualEmpId}
+        />
       </div>
     </div>
   );

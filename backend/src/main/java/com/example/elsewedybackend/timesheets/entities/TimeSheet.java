@@ -29,10 +29,8 @@ public class TimeSheet {
 	@Column(name="EMP_ID")
 	private Integer empId;
 
+	@OneToMany(mappedBy = "timeSheet", cascade = CascadeType.ALL, orphanRemoval = true)
 
-
-
-	@OneToMany(mappedBy = "timeSheet", cascade = CascadeType.ALL)
 	private List<ProjectTimeSheet> projectTimeSheets;
 
 }

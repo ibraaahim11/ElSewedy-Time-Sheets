@@ -15,6 +15,8 @@ import com.example.elsewedybackend.timesheets.repositories.ProjectRepository;
 
 @RestController
 @RequestMapping("/timesheets")
+@CrossOrigin(origins = "http://localhost:5173")
+
 public class TimesheetController {
 
 	private final TimesheetRepository timesheetRepository;

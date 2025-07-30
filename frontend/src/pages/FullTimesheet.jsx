@@ -12,8 +12,6 @@ const FullTimesheet = ({ newTS }) => {
   // timesheet id from path param
   const { tsId, empId } = useParams();
 
-  // reset key to reset component when user presses create new sheet
-  const [resetKey, setResetKey] = useState(0);
   const navigate = useNavigate();
 
   const [deleted, setDeleted] = useState(false);
@@ -71,7 +69,6 @@ const FullTimesheet = ({ newTS }) => {
       <div className="w-100" style={{ maxWidth: "900px" }}>
         {!deleted && (
           <TimesheetCard
-            key={resetKey}
             deleteTs={deleteTs}
             newTS={newTS}
             tsId={tsId}

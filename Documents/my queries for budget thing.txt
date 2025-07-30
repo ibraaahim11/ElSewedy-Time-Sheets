@@ -1,0 +1,67 @@
+SELECT 
+  proj.project_id, 
+  proj_pos.hours_budget,
+
+  CASE 
+    WHEN SUM(hours) IS NULL THEN proj_pos.hours_budget
+    ELSE (proj_pos.hours_budget - SUM(hours))
+  END as remaining_hours,
+    0 as ts_hours
+FROM EMPLOYEE e
+JOIN PROJECT_POSITIONS proj_pos 
+  ON e.position_id = proj_pos.position_id
+JOIN PROJECT proj 
+  ON proj.project_id = proj_pos.project_id
+LEFT JOIN (
+    SELECT pts.*
+    FROM PROJECT_TIME_SHEETS pts
+    JOIN TIME_SHEET ts ON ts.ts_id = pts.ts_id
+    WHERE ts.emp_id = 1
+) pts ON pts.project_id = proj.project_id
+LEFT JOIN TIME_SHEET ts ON ts.ts_id = pts.ts_id
+LEFT JOIN WEEK_DAYS wd ON wd.project_ts_id = pts.id
+WHERE e.emp_id = 1
+GROUP BY proj.project_id,proj_pos.hours_budget
+ORDER BY proj.project_id;
+----------------------------------------------------------------------------------------------- no ts
+
+with project_ts_hours as (
+SELECT 
+	proj_pos.project_id,
+ 	CASE WHEN SUM(hours)IS NULL THEN 0 ELSE SUM(hours) END AS ts_hours
+FROM EMPLOYEE e
+JOIN PROJECT_POSITIONS proj_pos 
+  ON e.position_id = proj_pos.position_id
+LEFT JOIN PROJECT_TIME_SHEETS pts 
+  ON pts.project_id = proj_pos.project_id AND (pts.ts_id = 1 OR pts.ts_id IS NULL)
+LEFT JOIN WEEK_DAYS wd on wd.project_ts_id = pts.id
+WHERE e.emp_id = 1 
+GROUP BY proj_pos.project_id
+ORDER BY PROJECT_ID)
+SELECT 
+  proj.project_id, 
+  proj_pos.hours_budget,
+  CASE 
+    WHEN SUM(hours) IS NULL THEN proj_pos.hours_budget
+    ELSE (proj_pos.hours_budget - SUM(hours))
+  END as remaining_hours,
+  ptsh.ts_hours
+FROM EMPLOYEE e
+JOIN PROJECT_POSITIONS proj_pos 
+  ON e.position_id = proj_pos.position_id
+JOIN PROJECT proj 
+  ON proj.project_id = proj_pos.project_id
+LEFT JOIN (
+    SELECT pts.*
+    FROM PROJECT_TIME_SHEETS pts
+    JOIN TIME_SHEET ts ON ts.ts_id = pts.ts_id
+    WHERE ts.emp_id = 1
+) pts ON pts.project_id = proj.project_id
+LEFT JOIN TIME_SHEET ts ON ts.ts_id = pts.ts_id
+LEFT JOIN WEEK_DAYS wd ON wd.project_ts_id = pts.id
+JOIN project_ts_hours ptsh on ptsh.project_id = proj.project_id
+WHERE e.emp_id = 1
+GROUP BY proj.project_id, proj_pos.hours_budget, ptsh.ts_hours
+ORDER BY proj.project_id;
+
+------------------------------------------------ ts

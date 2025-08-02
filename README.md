@@ -38,7 +38,7 @@
 
 This system was developed as part of an internship at Elsewedy Electric to improve project and workforce management. Built using Spring Boot (backend), React (frontend), and Oracle Database, it allows managers to create projects, assign positions with budgeted hours, and track employee timesheets.
 
-Employees can view their assigned projects and submit weekly timesheets, while the system ensures they stay within their allocated hours. By linking positions to salary data, it can help caluclate project labor expense.
+Employees can view their assigned projects and submit weekly timesheets, while the system ensures they stay within their allocated hours. By linking positions to salary data, it can help calculate project labor expense.
 
 For more info on using the website: [View User Guide (PDF)](./documents/ElSewedy%20Timesheets%20-%20User%20Guide.pdf)
 

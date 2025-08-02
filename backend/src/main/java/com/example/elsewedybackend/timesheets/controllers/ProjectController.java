@@ -1,19 +1,24 @@
 package com.example.elsewedybackend.timesheets.controllers;
 
+import com.example.elsewedybackend.manager_interface.dtos.EmployeeProjectTimeSheet;
+import com.example.elsewedybackend.manager_interface.repositories.ManagerProjectTimeSheetRepository;
 import com.example.elsewedybackend.timesheets.dto.ProjectHoursBudgetDTO;
 import com.example.elsewedybackend.timesheets.entities.Project;
 import com.example.elsewedybackend.timesheets.repositories.ProjectRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/projects")
+@RequestMapping("/api/projects")
 @CrossOrigin(origins = "http://localhost:5173")
 
 public class ProjectController {
 
 	private final ProjectRepository projectRepository;
+	@Autowired
+	ManagerProjectTimeSheetRepository managerProjectTimeSheetRepository;
 
 	public ProjectController(ProjectRepository projectRepository) {
 		this.projectRepository = projectRepository;
@@ -39,6 +44,12 @@ public class ProjectController {
 			return projectRepository.getProjectsHoursBudgetAndTS(employeeId, tsId);
 
 		}
+	}
+
+	@GetMapping("/{projectId}/employee-timesheets")
+	public List<EmployeeProjectTimeSheet> getEmployeeProjectTs(@PathVariable Integer projectId) {
+		return managerProjectTimeSheetRepository.findEmployeeProjectTimesheet(projectId);
+
 	}
 
 

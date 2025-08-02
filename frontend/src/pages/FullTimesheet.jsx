@@ -1,5 +1,5 @@
 import { useState } from "react";
-import TimesheetCard from "../components/TimesheetCard";
+import TimesheetCard from "../components/Timesheet Components/TimesheetCard";
 import { Button } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import timeSheetService from "../services/timeSheetService";
@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 // full timesheet page
 const FullTimesheet = ({ newTS }) => {
   // for now it's 1 -> should be passed from view screen
-  const EMP_ID = 1;
+  const EMP_ID = localStorage.getItem("empId");
   // timesheet id from path param
   const { tsId, empId } = useParams();
 
@@ -54,16 +54,24 @@ const FullTimesheet = ({ newTS }) => {
   return (
     <div className="d-flex flex-column align-items-center min-vh-100 pt-5">
       <div
-        className="w-100 d-flex justify-content-end px-4 mb-3"
+        className="w-100 d-flex flex-column align-items-end px-4 mb-3"
         style={{ maxWidth: "900px" }}
       >
         <Button
           variant="primary"
-          className="fw-bold px-4 py-2"
+          className="fw-bold px-4 py-2 mb-2"
           onClick={handleReset}
         >
           Start New Timesheet
         </Button>
+
+        <button
+          className="btn btn-outline-secondary d-flex align-items-center gap-2"
+          onClick={() => navigate("/employee-home")}
+        >
+          <i className="bi bi-house-door-fill"></i>
+          Home
+        </button>
       </div>
 
       <div className="w-100" style={{ maxWidth: "900px" }}>
@@ -72,7 +80,7 @@ const FullTimesheet = ({ newTS }) => {
             deleteTs={deleteTs}
             newTS={newTS}
             tsId={tsId}
-            empId={empId}
+            empId={EMP_ID}
           />
         )}
       </div>

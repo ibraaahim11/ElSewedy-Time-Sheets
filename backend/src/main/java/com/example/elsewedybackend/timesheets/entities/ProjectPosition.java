@@ -1,24 +1,39 @@
-package com.example.elsewedybackend.timesheets.entities;
+package com.example.elsewedybackend.manager_interface.entity;
 
+
+import com.example.elsewedybackend.timesheets.entities.Position;
+import com.example.elsewedybackend.timesheets.entities.Project;
 import jakarta.persistence.*;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Entity
 @Data
-@NoArgsConstructor
-@Table(name = "PROJECT_POSITIONS")
+@Table(name = "Project_positions", uniqueConstraints = @UniqueConstraint(columnNames = {"Project_id", "Position_id"}))
+
 public class ProjectPosition {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "Id")
 	private Integer id;
 
-	@Column(name = "PROJECT_ID")
-	private Integer projectId;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "Project_id", nullable = false)
+	private Project project;
 
-	@Column(name = "POSITION_ID")
-	private Integer positionId;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "Position_id", nullable = false)
+	private Position position;
 
-	@Column(name = "HOURS_BUDGET")
-	private Double hoursBudget;
+	@Column(name = "hours_budget", nullable = false)
+	private Integer hoursBudget;
+
+//	// Getters and Setters
+//	public Integer getId() { return id; }
+//	public void setId(Integer id) { this.id = id; }
+//	public Project getProject() { return project; }
+//	public void setProject(Project project) { this.project = project; }
+//	public Position getPosition() { return position; }
+//	public void setPosition(Position position) { this.position = position; }
+//	public Integer getHoursBudget() { return hoursBudget; }
+//	public void setHoursBudget(Integer hoursBudget) { this.hoursBudget = hoursBudget; }
 }

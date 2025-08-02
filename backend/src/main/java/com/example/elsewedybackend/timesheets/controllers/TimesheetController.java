@@ -1,20 +1,20 @@
 package com.example.elsewedybackend.timesheets.controllers;
 
+import com.example.elsewedybackend.employee.service.TimeSheetService;
 import com.example.elsewedybackend.timesheets.entities.TimeSheet;
-import com.example.elsewedybackend.timesheets.repositories.TimesheetRepository;
-import com.example.elsewedybackend.timesheets.services.TimeSheetService;
+import com.example.elsewedybackend.employee.repository.TimesheetRepository;
+
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
-import com.example.elsewedybackend.timesheets.entities.ProjectTimeSheet;
-import com.example.elsewedybackend.timesheets.entities.WeekDay;
 import com.example.elsewedybackend.timesheets.repositories.ProjectRepository;
 
 @RestController
-@RequestMapping("/timesheets")
+@RequestMapping("/api/timesheets")
 @CrossOrigin(origins = "http://localhost:5173")
 
 public class TimesheetController {
@@ -31,7 +31,7 @@ public class TimesheetController {
 
 	@GetMapping("/{tsId}")
 	public ResponseEntity<?> findFullTimeSheet(@PathVariable Integer tsId) {
-		Optional<TimeSheet> ts = timesheetRepository.findById(tsId);
+		Optional<TimeSheet> ts = timesheetRepository.findById(Long.valueOf(tsId));
 		if (ts.isPresent())
 			return ResponseEntity.ok(ts.get());
 		else
@@ -42,10 +42,10 @@ public class TimesheetController {
 	// fully deletes timesheet with accompanying data in other tables.
 	@DeleteMapping("/{tsId}")
 	public ResponseEntity<String> deleteTimeSheet(@PathVariable Integer tsId) {
-		Optional<TimeSheet> ts = timesheetRepository.findById(tsId);
+		Optional<TimeSheet> ts = timesheetRepository.findById(Long.valueOf(tsId));
 
 		if (ts.isPresent()) {
-			timesheetRepository.deleteById(tsId);
+			timesheetRepository.deleteById(Long.valueOf(tsId));
 			return ResponseEntity.ok("Timesheet "+ tsId +" deleted successfully.");
 		} else {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Timesheet "+ tsId +" not found.");
@@ -74,7 +74,7 @@ public class TimesheetController {
 	public ResponseEntity<?> updateTimeSheet(@PathVariable Integer tsId, @RequestBody TimeSheet ts) {
 
 		try {
-			if (timesheetRepository.findById(tsId).isEmpty()) {
+			if (timesheetRepository.findById(Long.valueOf(tsId)).isEmpty()) {
 				return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Timesheet "+ tsId +" not found.");
 			}
 			ts.setId(tsId);

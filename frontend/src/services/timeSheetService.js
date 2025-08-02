@@ -1,10 +1,10 @@
 import axios from "axios";
 import handleError from "../utils/handleServiceError.js";
 
-const API_BASE_URL = "http://localhost:9090";
+const API_BASE_URL = "http://localhost:9090/api";
 
-// api services to backend
 const timeSheetService = {
+  // Single timesheet operations
   getTimeSheet: (tsId) =>
     axios
       .get(`${API_BASE_URL}/timesheets/${tsId}`)
@@ -28,6 +28,8 @@ const timeSheetService = {
       .put(`${API_BASE_URL}/timesheets/${tsId}`, timeSheet)
       .then((res) => res.data)
       .catch(handleError),
+
+  // Project-related queries
   getEmployeeProjects: (empId) =>
     axios
       .get(`${API_BASE_URL}/projects/assigned?employeeId=${empId}`)
@@ -35,15 +37,40 @@ const timeSheetService = {
       .catch(handleError),
 
   getProjectHoursBudget: (empId, tsId) => {
-   let url = `${API_BASE_URL}/projects/assigned/budget?employeeId=${empId}`;
+    let url = `${API_BASE_URL}/projects/assigned/budget?employeeId=${empId}`;
     if (tsId != null && tsId > 0) {
       url += `&tsId=${tsId}`;
     }
-   return axios
+    return axios
       .get(url)
       .then((res) => res.data)
       .catch(handleError);
   },
+
+  // Search functions
+  getByStartDate: (start) =>
+    axios
+      .get(`${API_BASE_URL}/timesheets/search-by-start?start=${start}`)
+      .then((res) => res.data)
+      .catch(handleError),
+
+  getByEndDate: (end) =>
+    axios
+      .get(`${API_BASE_URL}/timesheets/search-by-end?end=${end}`)
+      .then((res) => res.data)
+      .catch(handleError),
+
+  getByDateRange: (start, end) =>
+    axios
+      .get(`${API_BASE_URL}/timesheets/search?start=${start}&end=${end}`)
+      .then((res) => res.data)
+      .catch(handleError),
+
+  getTimesheetsByEmployeeId: (empId) =>
+    axios
+      .get(`${API_BASE_URL}/timesheets/employee/${empId}`)
+      .then((res) => res.data)
+      .catch(handleError),
 };
 
 export default timeSheetService;

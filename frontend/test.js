@@ -1,4 +1,5 @@
-import timeSheetService from "./src/services/timeSheetService.js";
-import dateUtils from "./src/utils/dateUtils.js";
+import managerService from "./src/services/managerService.js";
 
-console.log(await timeSheetService.getProjectHoursBudget(1,1));
+console.log(
+  await managerService.getAllEmployeeTsByProjectId(1)
+);

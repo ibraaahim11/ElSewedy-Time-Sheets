@@ -10,6 +10,8 @@ import java.util.List;
 
 public interface ProjectRepository extends JpaRepository<Project, Integer> {
 
+	List<Project> findByEmployeeEmpId(Integer empId);
+
 	// Get all projects assigned to employee (based on their position)
 	@Query(value = """
         SELECT DISTINCT proj.*

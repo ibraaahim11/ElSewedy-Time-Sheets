@@ -40,9 +40,9 @@ This system was developed as part of an internship at Elsewedy Electric to impro
 
 Employees can view their assigned projects and submit weekly timesheets, while the system ensures they stay within their allocated hours. By linking positions to salary data, it can help caluclate project labor expense.
 
-For more info on using the website: [View User Guide (PDF)](./doucments/ElSewedy%20Timesheets%20-%20User%20Guide.pdf)
+For more info on using the website: [View User Guide (PDF)](./documents/ElSewedy%20Timesheets%20-%20User%20Guide.pdf)
 
-If you are interested you can checkout the schema we built: [Relational Schema Diagram (PNG)](./doucments/relational-schema-diagram.png)
+If you are interested you can checkout the schema we built: [Relational Schema Diagram (PNG)](./documents/relational-schema-diagram.png)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
